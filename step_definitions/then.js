@@ -1,0 +1,9 @@
+const { Then } = require('cucumber');
+const SecurePage = require('../page_objects/secure.page');
+
+Then(/^I should see a flash message saying (.*)$/, async (message) => {
+
+    await expect(SecurePage.flashAlert).toBeDisplayed();
+    await expect(SecurePage.flashAlert).toHaveTextContaining(message);
+
+});
